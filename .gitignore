@@ -14,5 +14,10 @@ server.pid
 *.iml
 /dist/
 .cache
+.env
 .bloop/
 .idea/
+/.metals/
+.env
+.vscode
+project/metals.sbt
