@@ -1,0 +1,15 @@
+<Configuration status="warn" packages="org.apache.logging.log4j.core,io.sentry.log4j2">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%magenta{%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss}}} [%highlight{%p}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=green bold, TRACE=blue}] %style{%C{10}}{cyan} - %m%n"/>
+        </Console>
+        <Sentry name="Sentry"
+                dsn="${sys:sentry.dsn}"/>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Sentry"/>
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
